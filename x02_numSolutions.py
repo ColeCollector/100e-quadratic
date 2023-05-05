@@ -14,7 +14,34 @@ Determine the number of solutions. You will need to make use of the discriminant
 """
 import x01_discriminant
 
-def numSolutions(discriminant):
+
+
+def numSolutions(*a):
+
+  if a == list:
+    x = x01_discriminant.discriminant(a[0],a[1],a[2])
+
+    if x == 0:
+      return 1
+    
+    elif x > 0:
+      return 2
+    
+    elif x < 0:
+      return 0
+  
+  elif a != list:
+    if a == 0:
+      return 1
+
+    elif a > 0:
+      return 2
+    
+    elif a < 0:
+      return 0
+
+
+
   """
   input parameters:
   discriminant: signed float
@@ -25,19 +52,19 @@ def numSolutions(a,b,c):
   return: 
   integer for number of solutions.  It should be 0, 1 or 2
   """
-  
-  return None
+
 
 def main():
   # Uncomment the lines that make use of your function definition
-  #assert numSolutions(2,3,8) == 0
-  #assert numSolutions(-55) == 0
+  assert numSolutions(2,3,8) == 0
+  assert numSolutions(-55) == 0
   
-  #assert numSolutions(1,4,4) == 1
-  #assert numSolutions(0) == 1
+  assert numSolutions(1,4,4) == 1
+  assert numSolutions(0) == 1
   
-  #assert numSolutions(1,-1,-6) == 2
-  #assert numSolutions(25) == 2
+  assert numSolutions(1,-1,-6) == 2
+  assert numSolutions(25) == 2
+  return None
 
 if __name__ == "__main__":
   main()
