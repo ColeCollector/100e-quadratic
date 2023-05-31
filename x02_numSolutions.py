@@ -18,7 +18,7 @@ import x01_discriminant
 
 def numSolutions(*a):
 
-  if a == list:
+  if len(a) == 3:
     x = x01_discriminant.discriminant(a[0],a[1],a[2])
 
     if x == 0:
@@ -30,14 +30,14 @@ def numSolutions(*a):
     elif x < 0:
       return 0
   
-  elif a != list:
-    if a == 0:
+  if len(a) == 1:
+    if a[0] == 0:
       return 1
 
-    elif a > 0:
+    elif a[0] > 0:
       return 2
     
-    elif a < 0:
+    elif a[0] < 0:
       return 0
 
 
