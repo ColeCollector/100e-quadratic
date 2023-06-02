@@ -24,6 +24,9 @@ x05. Determine the roots
 Create a function that will determine the roots.
 You may import the functions from your other assignments.
 '''
+import x03_factor
+import math
+
 
 def roots(a,b,c):
   '''
@@ -36,7 +39,9 @@ def roots(a,b,c):
   list with the 2 values of the roots if there are solutions
   None if there are no solutions
   '''
-  return None
+  x = x03_factor.factorable(a,b,c)
+
+  return x
 
 def main():
   assert (3 in roots(1,-1,-6)) == True

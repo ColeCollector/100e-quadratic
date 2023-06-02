@@ -13,8 +13,9 @@ Assignments:
 ##### x04. Determine if the quadratic is a perfect square
 '''
 import x01_discriminant
+import math
 
-def perfSquare(a,b,c):
+def perfSquare(*a):
   '''
   Determine if the quadratic is a perfect Square.
   Input parameters:
@@ -28,19 +29,41 @@ def perfSquare(discriminant):
     True - is perfect
     False - is not perfect
   '''
-  
-  return None
+
+  if len(a) == 1:
+    if a[0] < 0: 
+      return False
+
+    else: 
+      roota = round(math.sqrt(a[0]))
+      if roota**2 == a[0]:
+        return True
+      else:
+        return False
+
+  elif len(a) == 3:
+    x = x01_discriminant.discriminant(a[0],a[1],a[2])
+    if x < 0: 
+      return False
+
+    else: 
+      rootx = round(math.sqrt(x))
+      if rootx**2 == x:
+        return True
+      else:
+        return False
+
 
 def main():
   #uncomment the lines that match how you have created your function
-  #assert perfSquare(1,4,4) == True
-  #assert perfSquare(0) == True
+  assert perfSquare(1,4,4) == True
+  assert perfSquare(0) == True
   
-  #assert perfSquare(1,-1,-6) == False
-  #assert perfSquare(25) == False
+  assert perfSquare(1,-1,-6) == True
+  assert perfSquare(25) == True
   
-  #assert perfSquare(2,3,8) == False
-  #assert perfSquare(-55) == False
+  assert perfSquare(2,3,8) == False
+  assert perfSquare(-55) == False
 
   
 if __name__ == "__main__":

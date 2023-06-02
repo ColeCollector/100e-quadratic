@@ -13,8 +13,9 @@ Assignments:
 ##### x03. Determine if the quadratic can be factored
 '''
 import x01_discriminant
+import math
 
-def factorable(a,b,c):
+def factorable(*a):
   '''
   Determine if the quadratic can be factored.
   Input parameters:
@@ -28,22 +29,43 @@ def factorable(discriminant):
     True - can be factored
     False - can not be factored
   '''
+  if len(a) == 1:
+    if a[0] < 0: 
+      return False
+
+    else: 
+      roota = round(math.sqrt(a[0]))
+      if roota**2 == a[0]:
+        return True
+      else:
+        return False
+
+  elif len(a) == 3:
+    x = x01_discriminant.discriminant(a[0],a[1],a[2])
+    if x < 0: 
+      return False
+
+    else: 
+      rootx = round(math.sqrt(x))
+      if rootx**2 == x:
+        return True
+      else:
+        return False
   
-  return None
 
 def main():
   #uncomment the lines that match your assignment
-  #assert factorable(1,4,4) == True
-  #assert factorable(0) == True
+  assert factorable(1,4,4) == True
+  assert factorable(0) == True
   
-  #assert factorable(1,-1,-6) == True
-  #assert factorable(25) == True
+  assert factorable(1,-1,-6) == True
+  assert factorable(25) == True
   
-  #assert factorable(2,3,8) == False
-  #assert factorable(-55) == False
+  assert factorable(2,3,8) == False
+  assert factorable(-55) == False
   
-  #assert factorable(1,3,7) == False
-  #assert factorable(5) == False
+  assert factorable(1,3,7) == False
+  assert factorable(5) == False
   
 if __name__ == "__main__":
   main()
