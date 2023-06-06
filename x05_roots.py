@@ -24,7 +24,7 @@ x05. Determine the roots
 Create a function that will determine the roots.
 You may import the functions from your other assignments.
 '''
-import x03_factor
+import x01_discriminant
 import math
 
 
@@ -39,9 +39,16 @@ def roots(a,b,c):
   list with the 2 values of the roots if there are solutions
   None if there are no solutions
   '''
-  x = x03_factor.factorable(a,b,c)
+  x = x01_discriminant.discriminant(a,b,c)
+  if x < 0: 
+    return None
 
-  return x
+  else: 
+    root = int((-b + round(math.sqrt(x)))/2)
+    root2 = int((-b - round(math.sqrt(x)))/2)
+    return (root,root2)
+    
+
 
 def main():
   assert (3 in roots(1,-1,-6)) == True
