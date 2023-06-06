@@ -44,8 +44,8 @@ def roots(a,b,c):
     return None
 
   else: 
-    root = int((-b + round(math.sqrt(x)))/2)
-    root2 = int((-b - round(math.sqrt(x)))/2)
+    root = (-1*b + round(math.sqrt(x)))/(2*a)
+    root2 = (-1*b - round(math.sqrt(x)))/(2*a)
     return (root,root2)
     
 

@@ -21,12 +21,17 @@ def Factored(a,b,c):
   None if the quadratic can not be factored
   '''
   x = x05_roots.roots(a,b,c)
+  print(x)
   if x == None:
     return None
 
   else:
-    m = x[0]
-    n = x[1]
+    if x[0] %1 == 0:
+      m = int(x[0])
+    else:
+      m = x[0]
+    
+    n = int(x[1]) if x[1]%1==0 else x[1]
 
     if m >= 0:
       term1 = f"(x - {m})"
@@ -39,16 +44,17 @@ def Factored(a,b,c):
     else: 
       n = n*-1
       term2 = f"(x + {n})"
-
-
-    return ("(x + 3)","()")
+    
+    answer = [term1,term2]
+    print(answer)
+    return answer
 
 def main():
-  print(Factored(1,1,-6))
-  assert "(x + 3)" in Factored(1,1,-6) == True
-  assert "(x - 2)" in Factored(1,1,-6) == True
-  assert "(x + 2)" in Factored(1,7,10) == True
-  assert "(2x + 1)" in Factored(2,5,2) == True
+  #print(Factored(1,1,-6))
+  assert ("(x + 3)" in Factored(1,1,-6)) == True
+  assert ("(x - 2)" in Factored(1,1,-6)) == True
+  assert ("(x + 2)" in Factored(1,7,10)) == True
+  assert ("(2x + 1)" in Factored(2,5,2)) == True
   assert "(x + 2)" in Factored(2,5,2) == True
   assert "(3x + 1)" in Factored(6,-7,-3) == True
   assert Factored(1,4,7) == None
