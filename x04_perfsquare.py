@@ -43,23 +43,17 @@ def perfSquare(discriminant):
 
   elif len(a) == 3:
     x = x01_discriminant.discriminant(a[0],a[1],a[2])
-    if x < 0: 
+    if x==0:
+      return True
+    else:
       return False
-
-    else: 
-      rootx = round(math.sqrt(x))
-      if rootx**2 == x:
-        return True
-      else:
-        return False
-
 
 def main():
   #uncomment the lines that match how you have created your function
   assert perfSquare(1,4,4) == True
   assert perfSquare(0) == True
   
-  assert perfSquare(1,-1,-6) == True
+  assert perfSquare(1,-1,-6) == False
   assert perfSquare(25) == True
   
   assert perfSquare(2,3,8) == False
